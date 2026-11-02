@@ -10,7 +10,7 @@ def overview():
     .stApp {background:#F5F7FB;color:#20334A;}
     .block-container {max-width:1120px;padding-top:4rem;padding-bottom:3rem;}
     .st-key-brand h1 {text-align:center;font-size:clamp(2.8rem,6vw,4.6rem);letter-spacing:-.055em;color:#17365D;padding-bottom:.4rem;}
-    .ca-symbol {display:block;width:160px;height:108px;margin:0 auto .6rem;}
+    .ca-symbol {display:block;width:160px;max-width:100%;height:auto;margin:0 auto 1.2rem;}
     .ca-eyebrow {text-align:center;text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700;color:#47717D;margin-bottom:.3rem;}
     .st-key-overview-intro, .st-key-overview-intro [data-testid="stMarkdown"], .st-key-overview-intro [data-testid="stMarkdownContainer"] {width:100%;}
     .ca-intro {text-align:center;width:100%;max-width:none;margin:0 auto 2.6rem;color:#526174;font-size:1.12rem;line-height:1.7;}
@@ -22,7 +22,7 @@ def overview():
     .ca-tag {color:#426A88;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
     .ca-foot {text-align:center;color:#607086;font-size:.88rem;line-height:1.6;margin:2.2rem auto 0;max-width:760px;}
     </style>""",unsafe_allow_html=True)
-    st.markdown('<img class="ca-symbol" alt="CommsAlign: two conversation bubbles with aligned message lines" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20160%20108%22%3E%3Cpath%20d%3D%22M24%2014H78Q90%2014%2090%2026V62Q90%2074%2078%2074H38L20%2088V74Q8%2074%208%2062V26Q8%2014%2024%2014Z%22%20fill%3D%22%232F75B5%22%2F%3E%3Cpath%20d%3D%22M82%2014H136Q152%2014%20152%2026V62Q152%2074%20140%2074V88L122%2074H82Q70%2074%2070%2062V26Q70%2014%2082%2014Z%22%20fill%3D%22%232E8B8B%22%20stroke%3D%22%23F5F7FB%22%20stroke-width%3D%224%22%2F%3E%3Cpath%20d%3D%22M28%2036H54M28%2050H54M98%2036H128M98%2050H128%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E">',unsafe_allow_html=True)
+    st.markdown('<img class="ca-symbol" alt="CommsAlign CA monogram" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22195%2095%20470%20355%22%3E%3Cpath%20d%3D%22M514%20164C423%2062%20238%20112%20218%20263C195%20422%20386%20495%20491%20376C402%20443%20267%20399%20264%20289C259%20171%20397%20106%20514%20164Z%22%20fill%3D%22%2317365D%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%232E8B8B%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M388%20412C425%20340%20477%20229%20519%20141C524%20130%20531%20131%20535%20143C563%20237%20593%20340%20627%20405%22%20stroke-width%3D%2223%22%2F%3E%3Cpath%20d%3D%22M361%20346C436%20314%20531%20352%20640%20291%22%20stroke-width%3D%2215%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">',unsafe_allow_html=True)
     st.markdown('<div class="ca-eyebrow">Workplace communication, with perspective</div>',unsafe_allow_html=True)
     with st.container(key='brand'):
         st.title('CommsAlign')
