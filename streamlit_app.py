@@ -10,6 +10,10 @@ def overview():
     .stApp {background:#F5F7FB;color:#20334A;}
     .block-container {max-width:1120px;padding-top:4rem;padding-bottom:3rem;}
     .st-key-brand h1 {text-align:center;font-size:clamp(2.8rem,6vw,4.6rem);letter-spacing:-.055em;color:#17365D;padding-bottom:.4rem;}
+    .ca-symbol {position:relative;width:116px;height:76px;margin:0 auto 1.2rem;}
+    .ca-symbol span {position:absolute;top:14px;width:66px;height:46px;border:7px solid;border-radius:18px;transform:rotate(-32deg);}
+    .ca-symbol span:first-child {left:6px;border-color:#2F75B5;}
+    .ca-symbol span:last-child {right:6px;border-color:#2E8B8B;}
     .ca-eyebrow {text-align:center;text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700;color:#47717D;margin-bottom:.3rem;}
     .st-key-overview-intro, .st-key-overview-intro [data-testid="stMarkdown"], .st-key-overview-intro [data-testid="stMarkdownContainer"] {width:100%;}
     .ca-intro {text-align:center;width:100%;max-width:none;margin:0 auto 2.6rem;color:#526174;font-size:1.12rem;line-height:1.7;}
@@ -21,6 +25,7 @@ def overview():
     .ca-tag {color:#426A88;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
     .ca-foot {text-align:center;color:#607086;font-size:.88rem;line-height:1.6;margin:2.2rem auto 0;max-width:760px;}
     </style>""",unsafe_allow_html=True)
+    st.markdown('<div class="ca-symbol" role="img" aria-label="CommsAlign: two linked shapes representing alignment"><span></span><span></span></div>',unsafe_allow_html=True)
     st.markdown('<div class="ca-eyebrow">Workplace communication, with perspective</div>',unsafe_allow_html=True)
     with st.container(key='brand'):
         st.title('CommsAlign')
