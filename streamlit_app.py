@@ -17,6 +17,10 @@ def overview():
     [class*="st-key-tool-card-"] {background:white;border:1px solid #DEE6EF;border-radius:22px;padding:1.8rem;box-shadow:0 12px 35px #17365D08;min-height:350px;}
     .st-key-tool-card-one {border-top:4px solid #2F75B5;}
     .st-key-tool-card-two {border-top:4px solid #2E8B8B;}
+    [class*="st-key-tool-card-"] .stButton button {background-color:#17365D;color:#FFFFFF;border:1px solid #17365D;}
+    [class*="st-key-tool-card-"] .stButton button:hover,
+    [class*="st-key-tool-card-"] .stButton button:focus-visible {background-color:#244D7A;color:#FFFFFF;border-color:#244D7A;}
+    [class*="st-key-tool-card-"] .stButton button:active {background-color:#102844;color:#FFFFFF;border-color:#102844;}
     [class*="st-key-tool-card-"] h2 {font-size:1.7rem;color:#17365D;letter-spacing:-.025em;}
     [class*="st-key-tool-card-"] p {line-height:1.65;}
     .ca-tag {color:#426A88;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
