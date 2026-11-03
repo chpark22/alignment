@@ -42,7 +42,7 @@ def overview():
         st.write('Explore aggregate survey patterns and turn a selected signal into a structured team discussion.')
         st.markdown('- See relative strengths and areas to explore.\n- Review evidence and privacy limitations.\n- Capture learning and export a follow-up summary.')
         st.caption('Currently uses synthetic demonstration data. Small-group results are suppressed by the reporting rule.')
-        if st.button('Open Team Diagnostic',use_container_width=True):
+        if st.button('Open Team Diagnostic',type='primary',use_container_width=True):
             st.switch_page(st.Page(team_diagnostic,title='Tool 2 — Team Diagnostic',url_path='team-diagnostic'))
     st.markdown('<p class="ca-foot">A starting point for discussion, not a diagnosis. Survey interpretations and message ratings remain provisional. Nothing is automatically sent between tools or to employees.</p>',unsafe_allow_html=True)
 
