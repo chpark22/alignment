@@ -50,7 +50,7 @@ def overview():
 if __name__=='__main__':
     st.navigation([
         st.Page(overview,title='Overview',default=True),
-        st.Page(team_diagnostic,title='Tool 2 — Team Diagnostic',url_path='team-diagnostic'),
         st.Page(message_coach,title='Tool 1 — Message Coach',url_path='message-coach'),
+        st.Page(team_diagnostic,title='Tool 2 — Team Diagnostic',url_path='team-diagnostic'),
     ]).run()
 
