@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Team Diagnostic{% endblock %}
+{% block content %}
+<section class="page-intro">
+  <h1>Team Diagnostic</h1>
+  <p class="lead">Find a survey signal, check the evidence, and prepare a discussion with the team.</p>
+  <p class="notice">Synthetic demonstration data. Survey patterns suggest questions to investigate and do not establish causes.</p>
+</section>
+<form class="filters" method="get">
+  <div><label for="team">Team</label><select id="team" name="team">
+    {% for team in reports|map(attribute='team_id')|unique %}<option value="{{ team }}"{% if team == report.team_id %} selected{% endif %}>{{ team|replace('SYNTHETIC_','')|replace('_',' ') }}</option>{% endfor %}
+  </select></div>
+  {% if team_reports|length > 1 %}
+  <div><label for="period">Period</label><select id="period" name="period" data-team="{{ report.team_id }}">
+    {% for row in team_reports %}<option value="{{ row.period or '' }}"{% if row.period == report.period %} selected{% endif %}>{{ row.period or 'Not supplied' }}</option>{% endfor %}
+  </select></div>
+  {% endif %}
+  <div><label for="minimum">Minimum responses per item</label><input id="minimum" name="minimum" type="number" min="1" max="10000" value="{{ report.minimum_responses }}" aria-describedby="threshold-help" required></div>
+  <button class="button" type="submit">Apply filters</button>
+</form>
+<p id="threshold-help" class="muted filter-help">If any supplied item falls below the minimum, all results for that team and period are withheld.</p>
+<script type="application/json" id="blocked-groups">{{ blocked|tojson }}</script>
+{% if report.suppressed %}
+<section class="sheet"><h2>Results withheld</h2>{% for note in report.limitations %}<p>{{ note }}</p>{% endfor %}</section>
+{% else %}
+{% for note in report.data_quality_notes %}<p class="notice warning">{{ note }}</p>{% endfor %}
+<div class="worksheet">
+  <section class="sheet" aria-labelledby="survey-title">
+    <h2 id="survey-title">Survey findings</h2>
+    <p class="muted">{{ report.period|replace('SYNTHETIC_', '')|replace('_', ' ')|capitalize if report.period else 'No period supplied' }} · Available item mean {{ '%.2f'|format(report.grand_mean) }} / 5</p>
+    <dl class="profile">
+      {% for area, score in report.hierarchy_scores.items() %}
+      <div><dt>{{ area }}{% if area in report.hierarchy_opportunities and area in report.hierarchy_strengths %}<small>Tied across areas</small>{% elif area in report.hierarchy_opportunities %}<small>Area to explore</small>{% elif area in report.hierarchy_strengths %}<small>Relative strength</small>{% endif %}</dt>
+      <dd>{% if score is not none %}<meter min="1" max="5" value="{{ score }}" aria-label="{{ area }}">{{ score }}</meter><span>{{ '%.2f'|format(score) }} / 5</span>{% else %}Unavailable{% endif %}</dd></div>
+      {% endfor %}
+    </dl>
+    {% if tie_notice %}<p class="muted">Some items share the same score. The lists show up to three items, ordered by item ID within ties. The discussion guide includes all mapped signals tied at the cutoff.</p>{% endif %}
+    {% for label, rows in [('Stronger signals', report.strengths), ('Areas for investigation', report.opportunities)] %}
+    <details><summary>{{ label }}</summary><ul>{% for row in rows %}<li>{{ row.item_id }} · {{ topics.get(row.item_id, '') }} · {{ '%.2f'|format(row.mean_score) }} / 5</li>{% else %}<li>No items available.</li>{% endfor %}</ul></details>
+    {% endfor %}
+    <details><summary>Methodology and limitations</summary><ul>{% for note in report.limitations %}<li>{{ note }}</li>{% endfor %}<li>Missing items are excluded. Bars span the valid scale of 1 to 5.</li></ul>{% if report.missing_items %}<p>Missing items: {{ report.missing_items|join(', ') }}</p>{% endif %}</details>
+    <a class="button secondary" href="{{ url_for('diagnostic', team=report.team_id, period=report.period or '', minimum=report.minimum_responses, download='diagnostic') }}">Download diagnostic</a>
+  </section>
+  <section class="sheet review" aria-labelledby="discussion-title">
+    <h2 id="discussion-title" tabindex="-1">Discussion guide</h2>
+    {% if signal %}
+    <nav class="signal-list" aria-label="Signals to explore">
+      {% for item in signals %}<a href="{{ url_for('diagnostic', team=report.team_id, period=report.period or '', minimum=report.minimum_responses, item=item.source_q12_item) }}#discussion-title"{% if item == signal %} aria-current="true"{% endif %}>{{ item.source_q12_item }} · {{ item.signal_name|replace('_',' ')|capitalize }}</a>{% endfor %}
+    </nav>
+    <h3>{{ signal.signal_name|replace('_',' ')|capitalize }}</h3>
+    <p class="muted">{{ signal.source_q12_item }} · {{ '%.2f'|format(signal.observed_score) }} / 5 · {{ signal.relationship_type|capitalize }} conceptual link</p>
+    <p>{{ signal.interpretation }}</p>
+    <p class="notice">{{ signal.caution }}</p>
+    {% set validation = matrix.get_by_source_item(signal.source_q12_item) %}
+    <details><summary>Research and evidence limits</summary>
+      <p>Evidence status: {{ signal.evidence_status|replace('_',' ')|capitalize }}. The conceptual link describes an interpretation of the survey item. Research validation is a separate question.</p>
+      {% if validation %}<p>Preliminary review: {{ validation.validation_status|replace('_',' ')|capitalize }}.</p><p>{{ validation.allowed_language }}</p><p>{{ validation.review_notes }}</p>{% if validation.validation_status != 'pending' %}<a href="{{ validation.external_source_reference }}">Read research source</a>{% endif %}{% endif %}
+    </details>
+    <h3>Questions for the team</h3>
+    <ol>{% for question in signal.manager_questions %}<li>{{ question }}</li>{% endfor %}</ol>
+    <details class="notes"><summary>Record discussion notes</summary>
+      <p class="muted">Use non-identifying notes. Saved notes are kept in this browser tab.</p>
+      <form method="post" action="{{ url_for('diagnostic', team=report.team_id, period=report.period or '', minimum=report.minimum_responses, item=signal.source_q12_item) }}" data-notes data-context="{{ [report.team_id, report.period or '', signal.source_q12_item]|tojson|forceescape }}">
+        {% for name, label in [('observations','Employee observations'), ('reflection','Manager reflection'), ('action','Agreed next step')] %}
+        <label for="{{ name }}">{{ label }}</label><textarea id="{{ name }}" name="{{ name }}" rows="3" maxlength="3000"></textarea>
+        {% endfor %}
+        <label for="outcome">How do observations relate to the hypothesis?</label><select id="outcome" name="outcome">{% for value in outcomes %}<option>{{ value }}</option>{% endfor %}</select>
+        <label for="decision">Next-step decision</label><select id="decision" name="decision">{% for value in decisions %}<option>{{ value }}</option>{% endfor %}</select>
+        <label for="owner">Responsible role</label><input id="owner" name="owner" maxlength="3000">
+        <label for="follow_up">Follow-up timing</label><input id="follow_up" name="follow_up" maxlength="3000">
+        <div class="actions"><button class="button secondary" type="button" data-save>Save notes</button><button class="button secondary" type="button" data-clear>Clear notes</button><button class="button" type="submit">Download discussion</button></div>
+        <p class="muted" role="status" data-note-status>Downloads include the last saved notes.</p>
+      </form>
+    </details>
+    {% else %}<p>No mapped communication signals are available for this team and period.</p>{% endif %}
+  </section>
+</div>
+{% endif %}
+{% endblock %}

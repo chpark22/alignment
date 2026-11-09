@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="home-intro">
+  <div>
+    <h1>Prepare for better<br>workplace conversations.</h1>
+    <p class="lead">Review what you plan to say, or turn a team survey finding into a discussion worth having.</p>
+    <a class="button" href="{{ url_for('coach', example=1) }}">Try a sample review</a>
+  </div>
+  <aside class="demo-sheet" aria-label="Sample worksheet">
+    <p class="sheet-label">Sample worksheet</p>
+    <blockquote>“Please send the revised onboarding checklist by Friday.”</blockquote>
+    <dl>
+      <div><dt>What’s clear</dt><dd>A deliverable and a deadline</dd></div>
+      <div><dt>What to clarify</dt><dd>Why the revision is needed</dd></div>
+    </dl>
+  </aside>
+</section>
+<section class="tool-index" aria-labelledby="tools">
+  <h2 id="tools">Choose a worksheet</h2>
+  <article class="tool-row">
+    <span class="tool-number">Tool 1</span>
+    <div><h3>Message Coach</h3><p>Check a task instruction or feedback draft against a rubric before you share it.</p></div>
+    <a class="button" href="{{ url_for('coach') }}">Open Message Coach</a>
+  </article>
+  <article class="tool-row">
+    <span class="tool-number">Tool 2</span>
+    <div><h3>Team Diagnostic</h3><p>Explore synthetic survey results, review the evidence, and prepare a team discussion.</p></div>
+    <a class="button" href="{{ url_for('diagnostic') }}">Open Team Diagnostic</a>
+  </article>
+</section>
+{% endblock %}

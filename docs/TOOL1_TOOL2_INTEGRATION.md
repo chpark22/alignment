@@ -1,11 +1,10 @@
 # Shared AlignAgent interface
 
-Install `.venv/bin/pip install -r requirements-tool1.txt`, then run
-`.venv/bin/streamlit run streamlit_app.py --server.address 127.0.0.1 --server.port 8520`.
+Install the root `requirements.txt` and start the Flask application as
+described in the README.
 
-Overview, Tool 2 Team Diagnostic and Tool 1 Message Coach share the sidebar.
-Tool 2's original standalone entry point still works. Its analysis, notes,
-privacy controls and evidence records are unchanged.
+Overview, Message Coach and Team Diagnostic share the top navigation.
+The Flask routes reuse the existing rubric, analysis, and evidence modules.
 
 Tool 1 uses the same teammates' source snapshot as the previous local merge;
 see app/tool1/UPSTREAM.md. The source version has not been confirmed by teammates.

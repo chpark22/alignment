@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T21:14:31.222Z",
+  "title": "CommsAlign Design System",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Identity navy",
+        "tonalRamp": [
+          "oklch(15% 0.0784 255.4)",
+          "oklch(27% 0.0784 255.4)",
+          "oklch(38% 0.0784 255.4)",
+          "oklch(50% 0.0784 255.4)",
+          "oklch(61% 0.0784 255.4)",
+          "oklch(73% 0.0784 255.4)",
+          "oklch(84% 0.0784 255.4)",
+          "oklch(95% 0.0784 255.4)"
+        ]
+      },
+      "teal": {
+        "role": "secondary",
+        "displayName": "Worksheet teal",
+        "tonalRamp": [
+          "oklch(15% 0.0711 191.2)",
+          "oklch(27% 0.0711 191.2)",
+          "oklch(38% 0.0711 191.2)",
+          "oklch(50% 0.0711 191.2)",
+          "oklch(61% 0.0711 191.2)",
+          "oklch(73% 0.0711 191.2)",
+          "oklch(84% 0.0711 191.2)",
+          "oklch(95% 0.0711 191.2)"
+        ]
+      },
+      "mark-teal": {
+        "role": "secondary",
+        "displayName": "Monogram teal",
+        "tonalRamp": [
+          "oklch(15% 0.0851 195.1)",
+          "oklch(27% 0.0851 195.1)",
+          "oklch(38% 0.0851 195.1)",
+          "oklch(50% 0.0851 195.1)",
+          "oklch(61% 0.0851 195.1)",
+          "oklch(73% 0.0851 195.1)",
+          "oklch(84% 0.0851 195.1)",
+          "oklch(95% 0.0851 195.1)"
+        ]
+      },
+      "navy-hover": {
+        "role": "primary",
+        "displayName": "Navy hover",
+        "tonalRamp": [
+          "oklch(15% 0.0887 252.6)",
+          "oklch(27% 0.0887 252.6)",
+          "oklch(38% 0.0887 252.6)",
+          "oklch(50% 0.0887 252.6)",
+          "oklch(61% 0.0887 252.6)",
+          "oklch(73% 0.0887 252.6)",
+          "oklch(84% 0.0887 252.6)",
+          "oklch(95% 0.0887 252.6)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Reading ink",
+        "tonalRamp": [
+          "oklch(15% 0.0524 251.9)",
+          "oklch(27% 0.0524 251.9)",
+          "oklch(38% 0.0524 251.9)",
+          "oklch(50% 0.0524 251.9)",
+          "oklch(61% 0.0524 251.9)",
+          "oklch(73% 0.0524 251.9)",
+          "oklch(84% 0.0524 251.9)",
+          "oklch(95% 0.0524 251.9)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted ink",
+        "tonalRamp": [
+          "oklch(15% 0.0371 240.1)",
+          "oklch(27% 0.0371 240.1)",
+          "oklch(38% 0.0371 240.1)",
+          "oklch(50% 0.0371 240.1)",
+          "oklch(61% 0.0371 240.1)",
+          "oklch(73% 0.0371 240.1)",
+          "oklch(84% 0.0371 240.1)",
+          "oklch(95% 0.0371 240.1)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Page paper",
+        "tonalRamp": [
+          "oklch(15% 0.0080 98.9)",
+          "oklch(27% 0.0080 98.9)",
+          "oklch(38% 0.0080 98.9)",
+          "oklch(50% 0.0080 98.9)",
+          "oklch(61% 0.0080 98.9)",
+          "oklch(73% 0.0080 98.9)",
+          "oklch(84% 0.0080 98.9)",
+          "oklch(95% 0.0080 98.9)"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Worksheet paper",
+        "tonalRamp": [
+          "oklch(15% 0.0054 95.1)",
+          "oklch(27% 0.0054 95.1)",
+          "oklch(38% 0.0054 95.1)",
+          "oklch(50% 0.0054 95.1)",
+          "oklch(61% 0.0054 95.1)",
+          "oklch(73% 0.0054 95.1)",
+          "oklch(84% 0.0054 95.1)",
+          "oklch(95% 0.0054 95.1)"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Sample wash",
+        "tonalRamp": [
+          "oklch(15% 0.0100 155.1)",
+          "oklch(27% 0.0100 155.1)",
+          "oklch(38% 0.0100 155.1)",
+          "oklch(50% 0.0100 155.1)",
+          "oklch(61% 0.0100 155.1)",
+          "oklch(73% 0.0100 155.1)",
+          "oklch(84% 0.0100 155.1)",
+          "oklch(95% 0.0100 155.1)"
+        ]
+      },
+      "review": {
+        "role": "neutral",
+        "displayName": "Evidence wash",
+        "tonalRamp": [
+          "oklch(15% 0.0095 140.5)",
+          "oklch(27% 0.0095 140.5)",
+          "oklch(38% 0.0095 140.5)",
+          "oklch(50% 0.0095 140.5)",
+          "oklch(61% 0.0095 140.5)",
+          "oklch(73% 0.0095 140.5)",
+          "oklch(84% 0.0095 140.5)",
+          "oklch(95% 0.0095 140.5)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Worksheet rule",
+        "tonalRamp": [
+          "oklch(15% 0.0146 148.8)",
+          "oklch(27% 0.0146 148.8)",
+          "oklch(38% 0.0146 148.8)",
+          "oklch(50% 0.0146 148.8)",
+          "oklch(61% 0.0146 148.8)",
+          "oklch(73% 0.0146 148.8)",
+          "oklch(84% 0.0146 148.8)",
+          "oklch(95% 0.0146 148.8)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field border",
+        "tonalRamp": [
+          "oklch(15% 0.0262 158.8)",
+          "oklch(27% 0.0262 158.8)",
+          "oklch(38% 0.0262 158.8)",
+          "oklch(50% 0.0262 158.8)",
+          "oklch(61% 0.0262 158.8)",
+          "oklch(73% 0.0262 158.8)",
+          "oklch(84% 0.0262 158.8)",
+          "oklch(95% 0.0262 158.8)"
+        ]
+      },
+      "focus": {
+        "role": "secondary",
+        "displayName": "Focus teal",
+        "tonalRamp": [
+          "oklch(15% 0.0896 190.7)",
+          "oklch(27% 0.0896 190.7)",
+          "oklch(38% 0.0896 190.7)",
+          "oklch(50% 0.0896 190.7)",
+          "oklch(61% 0.0896 190.7)",
+          "oklch(73% 0.0896 190.7)",
+          "oklch(84% 0.0896 190.7)",
+          "oklch(95% 0.0896 190.7)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0)",
+          "oklch(27% 0.0000 0)",
+          "oklch(38% 0.0000 0)",
+          "oklch(50% 0.0000 0)",
+          "oklch(61% 0.0000 0)",
+          "oklch(73% 0.0000 0)",
+          "oklch(84% 0.0000 0)",
+          "oklch(95% 0.0000 0)"
+        ]
+      },
+      "warning": {
+        "role": "tertiary",
+        "displayName": "Warning ink",
+        "tonalRamp": [
+          "oklch(15% 0.0859 55.6)",
+          "oklch(27% 0.0859 55.6)",
+          "oklch(38% 0.0859 55.6)",
+          "oklch(50% 0.0859 55.6)",
+          "oklch(61% 0.0859 55.6)",
+          "oklch(73% 0.0859 55.6)",
+          "oklch(84% 0.0859 55.6)",
+          "oklch(95% 0.0859 55.6)"
+        ]
+      },
+      "warning-paper": {
+        "role": "tertiary",
+        "displayName": "Warning paper",
+        "tonalRamp": [
+          "oklch(15% 0.0283 79.5)",
+          "oklch(27% 0.0283 79.5)",
+          "oklch(38% 0.0283 79.5)",
+          "oklch(50% 0.0283 79.5)",
+          "oklch(61% 0.0283 79.5)",
+          "oklch(73% 0.0283 79.5)",
+          "oklch(84% 0.0283 79.5)",
+          "oklch(95% 0.0283 79.5)"
+        ]
+      },
+      "warning-border": {
+        "role": "tertiary",
+        "displayName": "Warning border",
+        "tonalRamp": [
+          "oklch(15% 0.0540 72.5)",
+          "oklch(27% 0.0540 72.5)",
+          "oklch(38% 0.0540 72.5)",
+          "oklch(50% 0.0540 72.5)",
+          "oklch(61% 0.0540 72.5)",
+          "oklch(73% 0.0540 72.5)",
+          "oklch(84% 0.0540 72.5)",
+          "oklch(95% 0.0540 72.5)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Overview display",
+        "purpose": "Overview title."
+      },
+      "tool-display": {
+        "displayName": "Tool display",
+        "purpose": "Worksheet page titles."
+      },
+      "headline": {
+        "displayName": "Section headline",
+        "purpose": "Worksheet panels and major sections."
+      },
+      "title": {
+        "displayName": "Row title",
+        "purpose": "Tool names and findings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading, labels, and form controls."
+      },
+      "label": {
+        "displayName": "Worksheet label",
+        "purpose": "Sample sheet label."
+      }
+    },
+    "breakpoints": [
+      {
+        "name": "stacked",
+        "value": "760px"
+      },
+      {
+        "name": "compact-filters",
+        "value": "420px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Submit the main worksheet action.",
+      "html": "<button class=\"ds-btn\">Evaluate draft</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:2.75rem;padding:.55rem 1rem;border:1px solid var(--navy,#17365d);border-radius:.35rem;color:white;background:var(--navy,#17365d);font:700 16px/1.55 \"Segoe UI\",sans-serif;text-decoration:none;cursor:pointer}.ds-btn:hover{background:#244d7a;border-color:#244d7a}.ds-btn:disabled{opacity:.7;cursor:wait}.ds-btn:focus-visible{outline:3px solid var(--focus,#007975);outline-offset:4px}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Support actions such as downloads and saving notes.",
+      "html": "<button class=\"ds-btn ds-secondary\">Save notes</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:2.75rem;padding:.55rem 1rem;border:1px solid var(--navy,#17365d);border-radius:.35rem;color:white;background:var(--navy,#17365d);font:700 16px/1.55 \"Segoe UI\",sans-serif;text-decoration:none;cursor:pointer}.ds-btn:hover{background:#244d7a;border-color:#244d7a}.ds-btn:disabled{opacity:.7;cursor:wait}.ds-btn:focus-visible{outline:3px solid var(--focus,#007975);outline-offset:4px}.ds-secondary{background:transparent;color:var(--navy,#17365d)}.ds-secondary:hover{background:var(--wash,#e8efea)}"
+    },
+    {
+      "name": "Draft field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "A labeled, vertically resizable field.",
+      "html": "<label class=\"ds-label\" for=\"ds-draft\">Your draft</label><textarea class=\"ds-field\" id=\"ds-draft\" rows=\"3\" placeholder=\"Enter your draft\"></textarea>",
+      "css": ".ds-label{display:block;margin:.9rem 0 .3rem;color:var(--ink,#172d45);font:650 16px/1.55 \"Segoe UI\",sans-serif}.ds-field{box-sizing:border-box;display:block;width:100%;resize:vertical;padding:.55rem .7rem;color:var(--ink,#172d45);background:var(--sheet,#fffefa);border:1px solid #83958a;border-radius:.35rem;font:16px/1.55 \"Segoe UI\",sans-serif;caret-color:var(--teal,#216b68)}.ds-field::placeholder{color:var(--muted,#4b6171)}.ds-field:focus-visible{outline:3px solid var(--focus,#007975);outline-offset:4px}"
+    },
+    {
+      "name": "Main navigation",
+      "kind": "nav",
+      "description": "Underline the current destination.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#overview\">Overview</a><a href=\"#coach\" aria-current=\"page\">Message Coach</a><a href=\"#diagnostic\">Team Diagnostic</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:.3rem 1.5rem;font:16px/1.55 \"Segoe UI\",sans-serif}.ds-nav a{padding:.75rem 0;color:var(--muted,#4b6171);text-decoration:none;border-bottom:2px solid transparent}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--teal,#216b68);border-color:var(--teal,#216b68)}.ds-nav a:focus-visible{outline:3px solid var(--focus,#007975);outline-offset:4px}"
+    },
+    {
+      "name": "Worksheet panel",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "Hold the source draft or survey findings.",
+      "html": "<section class=\"ds-sheet\"><h2>Your draft</h2><p>Write the message you plan to share.</p></section>",
+      "css": ".ds-sheet{background:var(--sheet,#fffefa);color:var(--ink,#172d45);border:1px solid var(--rule,#c9d2ca);border-radius:.8rem;padding:clamp(1.1rem,3vw,2rem);font:16px/1.55 \"Segoe UI\",sans-serif}.ds-sheet h2{margin:0 0 1rem;font:500 clamp(1.6rem,2.6vw,2.1rem)/1.18 Georgia,serif}.ds-sheet p{margin:0}"
+    },
+    {
+      "name": "Evidence panel",
+      "kind": "card",
+      "refersTo": "review-sheet",
+      "description": "Hold the review or discussion guide.",
+      "html": "<section class=\"ds-sheet ds-review\"><h2>Review &amp; evidence</h2><p>Review the draft against the rubric.</p></section>",
+      "css": ".ds-sheet{background:var(--sheet,#fffefa);color:var(--ink,#172d45);border:1px solid var(--rule,#c9d2ca);border-radius:.8rem;padding:clamp(1.1rem,3vw,2rem);font:16px/1.55 \"Segoe UI\",sans-serif}.ds-sheet h2{margin:0 0 1rem;font:500 clamp(1.6rem,2.6vw,2.1rem)/1.18 Georgia,serif}.ds-sheet p{margin:0}.ds-review{background:#edf2ec}"
+    },
+    {
+      "name": "Diagnostic signals",
+      "kind": "chip",
+      "refersTo": "signal-current",
+      "description": "Show which signal the discussion guide is exploring.",
+      "html": "<nav class=\"ds-signals\" aria-label=\"Signals to explore\"><a href=\"#q01\" aria-current=\"true\">Q01 · Expectations</a><a href=\"#q02\">Q02 · Materials</a></nav>",
+      "css": ".ds-signals{display:flex;flex-wrap:wrap;gap:.4rem;font:16px/1.55 \"Segoe UI\",sans-serif}.ds-signals a{color:var(--teal,#216b68);padding:.35rem .6rem;border:1px solid #8eab9f;border-radius:.35rem;text-decoration:none}.ds-signals a:hover,.ds-signals a[aria-current]{background:var(--teal,#216b68);color:white}.ds-signals a:focus-visible{outline:3px solid var(--focus,#007975);outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The facilitator’s worksheet",
+    "overview": "CommsAlign takes its cues from a facilitator’s worksheet. Warm paper, navy ink, and ruled sections make the tools feel like material someone could bring to a discussion. Teal guides attention to evidence, links, and current selections.\n\nThe layout keeps related material close. Drafts sit beside reviews, and survey findings sit beside discussion prompts. Serif headings mark the sections while the sans-serif body supports longer reading, labeling, and data entry.",
+    "keyCharacteristics": [
+      "Warm paper surfaces and a navy and teal CA monogram.",
+      "Related inputs and evidence in adjacent sheets.",
+      "Ruled rows for tools, findings, and survey profiles."
+    ],
+    "dos": [
+      "Do keep the CA monogram alongside the CommsAlign wordmark.",
+      "Do keep Message Coach ahead of Team Diagnostic in navigation and the tool index.",
+      "Do keep evidence beside its source on wide screens and directly after it in stacked reading order.",
+      "Do keep scores readable as text alongside their meters and label withheld results in words.",
+      "Do preserve the visible keyboard focus treatment and the skip link."
+    ]
+  }
+}
