@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Message Coach{% endblock %}
+{% block content %}
+<section class="page-intro">
+  <h1>Message Coach</h1>
+  <p class="lead">Review a task instruction or performance feedback draft before sharing it.</p>
+</section>
+<div class="worksheet">
+  <section class="sheet" aria-labelledby="draft-title">
+    <h2 id="draft-title">Your draft</h2>
+    <form method="post" action="{{ url_for('coach') }}#draft-title" data-review>
+      {% if error %}<p class="notice warning" role="alert" tabindex="-1" data-review-error>{{ error }}</p>{% endif %}
+      <label for="kind">Message type</label>
+      <select id="kind" name="kind">
+        {% for key in rubrics %}<option value="{{ key }}"{% if key == kind %} selected{% endif %}>{{ key|replace('_',' ')|capitalize }}</option>{% endfor %}
+      </select>
+      <label for="draft">Message</label>
+      <textarea id="draft" name="draft" rows="9" maxlength="12000" required placeholder="Paste or write your draft here.">{{ draft }}</textarea>
+      <label class="check"><input type="checkbox" name="consent" value="yes" required> <span>I agree to send this draft to the configured GW Azure model for review.</span></label>
+      <p class="muted">Use a draft without personal or sensitive details.</p>
+      <div class="actions"><button class="button" type="submit">Evaluate draft</button><a href="{{ url_for('coach', example=1) }}">Try sample review</a>{% if draft %}<a href="{{ url_for('coach') }}">Clear draft</a>{% endif %}</div>
+    </form>
+    <details><summary>View the selected rubric</summary>
+      {% for key, rubric in rubrics.items() %}<pre data-rubric="{{ key }}"{% if key != kind %} hidden{% endif %}>{{ rubric.text() }}</pre>{% endfor %}
+    </details>
+  </section>
+  <section class="sheet review" aria-labelledby="review-title">
+    <h2 id="review-title" tabindex="-1"{% if result and not example %} data-review-complete{% endif %}>Review &amp; evidence</h2>
+    {% if result %}
+      {% if example %}<p class="notice">Illustrative review for the class demo. No model call was made.</p>{% endif %}
+      <p class="muted">{{ 'Results for your revised draft.' if revised else 'Results are for the last reviewed draft.' }}</p>
+      <p class="notice warning" role="status" data-review-stale hidden>The draft has changed. Evaluate it again for an updated review.</p>
+      <p class="result-title">{{ 'Review abstained' if result.abstain else result.label|replace('_',' ')|capitalize }}</p>
+      {% if result.abstain %}<p>{{ result.abstain_reason or 'Outside rubric scope.' }}</p>{% endif %}
+      {% if not example %}<p class="muted">Model confidence: {{ result.confidence_level }}. {{ result.confidence_note }}</p>{% endif %}
+      {% for name, rating in result.dimensions.items() %}
+      <article class="finding">
+        <h3>{{ name.split('_', 1)[1]|replace('_',' ')|capitalize }} <span>{{ rating.score ~ ' / 5' if rating.score is not none else rating.status|replace('_',' ')|capitalize }}</span></h3>
+        {% for quote in rating.evidence %}<blockquote>“{{ quote }}”</blockquote>{% endfor %}
+        <p>{{ rating.note }}</p>
+      </article>
+      {% endfor %}
+      {% for warning in result.warnings %}<p class="notice warning">{{ warning }}</p>{% endfor %}
+      <details><summary>View the reviewed draft</summary><p class="reviewed-draft">{{ review.draft }}</p></details>
+      <script type="application/json" id="review-data">{{ review|tojson }}</script>
+      <button class="button secondary" type="button" data-download-review>Download review</button>
+    {% else %}
+      <p class="empty">Your rubric scores and excerpts will appear here after a review.</p>
+    {% endif %}
+    <p class="muted">Ratings are provisional rubric judgments. Read the evidence before using the feedback.</p>
+  </section>
+</div>
+{% if rewrite %}
+<section class="sheet revision" aria-labelledby="revision-title">
+  <h2 id="revision-title">Suggested rewrite</h2>
+  <p class="muted">Fill in any bracketed questions with details you can verify before sharing.</p>
+  <div class="worksheet">
+    <form method="post" action="{{ url_for('coach') }}#draft-title" data-rescore>
+      <input type="hidden" name="operation" value="rescore">
+      <input type="hidden" name="kind" value="{{ kind }}">
+      <label for="revision">Your version</label>
+      <textarea id="revision" name="draft" rows="8" maxlength="12000" required>{{ rewrite.rewrite }}</textarea>
+      <label class="check"><input type="checkbox" name="consent" value="yes" required><span>I agree to send this revision to the configured GW Azure model for review.</span></label>
+      <div class="actions"><button class="button" type="submit">Re-score my version</button><button class="button secondary" type="button" data-download-revision>Download revision</button></div>
+    </form>
+    <div>
+      <h3>Why these changes</h3>
+      {% if after and rewrite.changes %}<p class="muted">Suggested rewrite label: {{ after.label|replace('_',' ')|capitalize if not after.abstain else 'Review abstained' }}.</p>{% endif %}
+      {% for warning in rewrite.warnings %}<p class="notice warning">{{ warning }}</p>{% endfor %}
+      {% for change in rewrite.changes %}
+        <details><summary>{{ change.what }}</summary>
+          <p>{{ change.why }}</p>
+          {% for card_id in change.card_ids or [] %}{% if card_id in cards %}
+            {% set card = cards[card_id] %}
+            <p>{{ card.finding }}</p><p class="muted">{{ card.source }}, {{ card.locator }}. {{ card.limits }}</p>
+          {% endif %}{% else %}<p class="muted">This change follows the rubric.</p>{% endfor %}
+        </details>
+      {% else %}<p class="muted">The review proposed no changes.</p>{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

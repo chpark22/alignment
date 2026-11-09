@@ -2,17 +2,16 @@
 
 ## Run locally
 
-Python 3.9 or later. From the alignment repository:
+Python 3.11 recommended. From the alignment repository:
 
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/streamlit run app/organizational/dashboard.py --server.address 127.0.0.1 --server.port 8502
+.venv/bin/python -m flask --app commsalign run --port 8502
 ```
 
-Open http://127.0.0.1:8502/. Restart the server after changes to imported modules
-if an existing session retains old code. Local URLs work only on that computer.
-No production hosting or Tool 1 integration is included in this handoff.
+Open http://127.0.0.1:8502/team-diagnostic. Restart the server after code changes.
+Local URLs work only on that computer. The shared app also includes Message Coach.
 
 ## Current capabilities
 

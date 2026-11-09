@@ -1,5 +1,5 @@
-# CommsAlign shared Streamlit app; Python 3.11 recommended for hosting.
-streamlit>=1.40,<2.0
+# CommsAlign Flask app; Python 3.11 recommended for hosting.
+Flask>=3.1,<4.0
 openai>=2,<3
 python-dotenv>=1.0,<2
 # Automated verification
