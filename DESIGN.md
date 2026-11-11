@@ -4,7 +4,7 @@ description: A facilitator’s worksheet for workplace communication
 colors:
   navy: "#17365d"
   teal: "#216b68"
-  mark-teal: "#2e8b8b"
+  mark-teal: "#216b68"
   navy-hover: "#244d7a"
   ink: "#172d45"
   muted: "#4b6171"
@@ -117,7 +117,7 @@ The layout keeps related material close. Drafts sit beside reviews, and survey f
 
 ### Secondary
 
-- Worksheet teal marks links, labels, current navigation, selected signals, and meter fills. The monogram uses a brighter teal.
+- Worksheet teal marks the A in the monogram, links, labels, current navigation, selected signals, and meter fills.
 - Focus teal provides the shared keyboard outline.
 
 ### Tertiary
